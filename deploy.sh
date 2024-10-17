@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Variables (customize these)
+DJANGO_PROJECT_NAME="PROJECT"  # Custom Django project name
 PROJECT_NAME="myproject"  # Custom project name
 DB_NAME="custom_db_name"   # Custom database name
 DB_USER="custom_db_user"   # Custom database user
@@ -87,7 +88,7 @@ ExecStart=$PROJECT_DIR/.venv/bin/gunicorn \\
           --access-logfile - \\
           --workers 3 \\
           --bind unix:$SOCKET_PATH \\
-          $PROJECT_NAME.wsgi:application
+          $DJANGO_PROJECT_NAME.wsgi:application
 
 [Install]
 WantedBy=multi-user.target
